@@ -2,40 +2,34 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>نموذج التسجيل في الفعالية</title>
+  <title>نموذج التسجيل</title>
   <style>
-    body { font-family: Tahoma, Arial, sans-serif; background: #f9f9f9; direction: rtl; }
+    body { background: #f9f9f9; font-family: Tahoma, Arial, sans-serif; }
     .container { background: #fff; max-width: 400px; margin: 40px auto; border-radius: 8px; box-shadow: 0 2px 6px #ccc; padding: 32px 24px; }
-    h2 { text-align: center; color: #333; }
-    label { display: block; margin-top: 14px; color: #222; }
-    input, select { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 4px; margin-top: 4px; }
+    label { display: block; margin-top: 14px; }
+    input { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 4px; margin-top: 4px; }
     button { margin-top: 22px; width: 100%; background: #0064c8; color: #fff; border: none; border-radius: 4px; padding: 12px; font-size: 16px; cursor: pointer; }
-    button:hover { background: #004a96; }
     .msg { margin-top: 20px; text-align: center; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>التسجيل في الفعالية</h2>
+    <h2>التسجيل في الدورة</h2>
     <form id="regForm">
       <label>الاسم الكامل</label>
       <input type="text" name="name" required>
-      
       <label>البريد الإلكتروني</label>
       <input type="email" name="email" required>
-      
       <label>رقم الهاتف</label>
       <input type="tel" name="phone" required>
-      
-      <label>اسم الفعالية</label>
-      <input type="text" name="eventTitle" required>
-      
-      <label>تاريخ الحضور</label>
-      <input type="date" name="attendanceDate" required>
-      
+      <label>العمر</label>
+      <input type="number" name="age" required>
       <label>المدينة</label>
-      <input type="text" name="city">
-      
+      <input type="text" name="city" required>
+      <label>الدورة</label>
+      <input type="text" name="course" required>
+      <label>الولاية</label>
+      <input type="text" name="wilaya">
       <button type="submit">تسجيل</button>
       <div class="msg" id="msg"></div>
     </form>
@@ -47,9 +41,8 @@
       const data = new FormData(form);
       const params = new URLSearchParams();
       for (const pair of data) params.append(pair[0], pair[1]);
-      
-      // ضع هنا رابط سكريبت Google Apps Script الخاص بك
-      const scriptURL = "https://script.google.com/macros/s/AKfycbx2e8IlkAZiJ8kJJypxW33XpT2ZE28XDivq38OzbTIWklFkaqBnute7nv6OBwAahw62jg/exec";
+      // ضع هنا رابط السكريبت الخاص بك:
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwYn7cDvCoszeVeJEgTaTHJzLuiatb8G6iV2lxrnvrcoa6u20Ysj5A4joNQ1j0DeYe5ZQ/exec";
       const msgBox = document.getElementById("msg");
       msgBox.textContent = "جاري الإرسال ...";
       try {
