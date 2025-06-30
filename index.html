@@ -402,7 +402,7 @@
         for (const pair of formData) params.append(pair[0], pair[1]);
         params.append('timestamp', new Date().toLocaleString('ar-EG'));
         // Google Apps Script endpoint (غيّر الرابط بما يناسبك)
-        const scriptURL = "https://script.google.com/macros/s/AKfycbwYn7cDvCoszeVeJEgTaTHJzLuiatb8G6iV2lxrnvrcoa6u20Ysj5A4joNQ1j0DeYe5ZQ/exec";
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwC8xjDrr4lCaZwMwA-jsjFCXYHXWF5vm3weqKQURdA6PS-AjMSWvJJ4isV-Kf--GUg6w/exec";
         const response = await fetch(scriptURL, {
           method: "POST",
           body: params
