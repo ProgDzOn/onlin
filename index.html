@@ -3,53 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التسجيل في دوراتنا التدريبية المتميزة</title>
+  <title>دورات احترافية في Excel, Access, Delphi, SQL و تطبيقات ديسكتوب</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #3498db;
+      --primary-color: #2753a7;
+      --secondary-color: #3bc3b2;
       --accent-color: #e74c3c;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
     body {
       font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: var(--bg-gradient);
       min-height: 100vh;
+      color: #222;
     }
-    .registration-card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      overflow: hidden;
-      border-top: 5px solid var(--primary-color);
-      transition: all 0.3s ease;
-    }
-    .registration-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-    .form-header {
+    .navbar {
       background: var(--primary-color);
-      color: white;
-      padding: 20px;
-      text-align: center;
     }
-    .form-header h2 {
-      margin: 0;
-      font-weight: 700;
+    .navbar-brand, .nav-link, .navbar-nav .nav-link.active {
+      color: #fff !important;
+      font-weight: bold;
     }
-    .form-body {
-      padding: 25px;
+    .hero-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.12);
+      padding: 40px 32px 24px 32px;
+      margin-top: 32px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section video, .hero-section img {
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(44,62,80,0.08);
+    }
+    .promo-badge {
+      background: var(--secondary-color);
+      color: #fff;
+      border-radius: 40px;
+      padding: 6px 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 12px rgba(59,195,178,0.16);
+    }
+    .card-fx {
+      transition: all 0.25s;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(44,62,80,0.05);
+      border: none;
+    }
+    .card-fx:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(44,62,80,0.10);
     }
     .benefits-list {
       list-style: none;
       padding: 0;
+      margin-bottom: 0;
     }
     .benefits-list li {
-      padding: 8px 0;
+      padding: 9px 0 9px 0;
       position: relative;
       padding-right: 30px;
+      font-size: 1.05rem;
     }
     .benefits-list li:before {
       content: "✓";
@@ -61,241 +84,343 @@
     .btn-primary {
       background-color: var(--primary-color);
       border-color: var(--primary-color);
-      padding: 12px;
       font-weight: bold;
       transition: all 0.3s;
+      padding: 14px 0;
+      font-size: 1.18rem;
     }
     .btn-primary:hover {
       background-color: var(--secondary-color);
-      transform: translateY(-2px);
+      border-color: var(--secondary-color);
+      transform: translateY(-2px) scale(1.02);
     }
     .guarantee-badge {
       background-color: var(--accent-color);
       color: white;
-      padding: 8px 15px;
+      padding: 6px 20px;
       border-radius: 30px;
       font-weight: bold;
       display: inline-block;
-      margin-bottom: 15px;
-      font-size: 0.9rem;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+    .testimonial {
+      background: #f7fafc;
+      border-right: 4px solid var(--secondary-color);
+      border-radius: 10px;
+      padding: 18px 16px 8px 16px;
+      margin-bottom: 10px;
+      font-size: 1rem;
     }
     .social-proof {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px;
-      margin-top: 20px;
+      margin-top: 18px;
+      margin-bottom: 5px;
     }
-    .testimonial {
-      border-right: 3px solid var(--secondary-color);
-      padding-right: 15px;
+    .share-section {
+      text-align: center;
+      margin: 32px 0 10px 0;
+    }
+    .share-btn {
+      display: inline-block;
+      background: var(--secondary-color);
+      color: #fff;
+      border-radius: 30px;
+      padding: 8px 18px;
+      margin: 0 6px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .share-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .footer {
+      color: #888;
+      padding: 18px 0 4px 0;
+      font-size: 0.98rem;
+    }
+    @media (max-width: 991px) {
+      .hero-section {
+        padding: 24px 8px 16px 8px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="registration-card">
-          <div class="form-header">
-            <h2><i class="fas fa-graduation-cap me-2"></i>التسجيل في دوراتنا التدريبية</h2>
-            <p class="mb-0">احترف البرمجة وطور مهاراتك مع أفضل المدربين</p>
-          </div>
-          
-          <div class="form-body">
-            <div class="guarantee-badge">
-              <i class="fas fa-shield-alt me-2"></i>ضمان استرداد الأموال خلال 7 أيام
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6">
-                <h4 class="mb-4">مميزات الدورات:</h4>
-                <ul class="benefits-list">
-                  <li>شهادة معتمدة بعد الانتهاء</li>
-                  <li>مدربون ذوو خبرة عالية</li>
-                  <li>دعم فني لمدة 3 أشهر</li>
-                  <li>ملفات ومشاريع عملية</li>
-                  <li>تحديثات مجانية لمدة عام</li>
-                  <li>فرص عمل للطلاب المتميزين</li>
-                </ul>
-                
-                <div class="social-proof mt-4">
-                  <h5><i class="fas fa-star text-warning"></i> تقييم 4.9/5 من 357 طالب</h5>
-                  <div class="testimonial mt-3">
-                    <p>"الدورة غيرت مساري المهني بالكامل، أنصح بها بشدة!"</p>
-                    <p class="text-muted">- أحمد، مبرمج أنظمة</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <form id="regForm">
-                  <div class="mb-3">
-                    <label class="form-label">الاسم الكامل</label>
-                    <input type="text" class="form-control" name="name" required>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">البريد الإلكتروني</label>
-                    <input type="email" class="form-control" name="email" required>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">رقم الهاتف</label>
-                    <input type="tel" class="form-control" name="phone" required>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">العمر</label>
-                    <input type="number" class="form-control" name="age" min="16" max="70" required>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">المدينة</label>
-                    <input type="text" class="form-control" name="city" required>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">الولاية</label>
-                    <select class="form-select" name="wilaya" required>
-                      <option value="">-- اختر ولايتك --</option>
-                      <option value="01">أدرار</option>
-                      <option value="02">الشلف</option>
-                      <option value="03">الأغواط</option>
-                      <option value="04">أم البواقي</option>
-                      <option value="05">باتنة</option>
-                      <option value="06">بجاية</option>
-                      <option value="07">بسكرة</option>
-                      <option value="08">بشار</option>
-                      <option value="09">البليدة</option>
-                      <option value="10">البويرة</option>
-                      <option value="11">تمنراست</option>
-                      <option value="12">تبسة</option>
-                      <option value="13">تلمسان</option>
-                      <option value="14">تيارت</option>
-                      <option value="15">تيزي وزو</option>
-                      <option value="16">الجزائر</option>
-                      <option value="17">الجلفة</option>
-                      <option value="18">جيجل</option>
-                      <option value="19">سطيف</option>
-                      <option value="20">سعيدة</option>
-                      <option value="21">سكيكدة</option>
-                      <option value="22">سيدي بلعباس</option>
-                      <option value="23">عنابة</option>
-                      <option value="24">قالمة</option>
-                      <option value="25">قسنطينة</option>
-                      <option value="26">المدية</option>
-                      <option value="27">مستغانم</option>
-                      <option value="28">المسيلة</option>
-                      <option value="29">معسكر</option>
-                      <option value="30">ورقلة</option>
-                      <option value="31">وهران</option>
-                      <option value="32">البيض</option>
-                      <option value="33">إيليزي</option>
-                      <option value="34">برج بوعريريج</option>
-                      <option value="35">بومرداس</option>
-                      <option value="36">الطارف</option>
-                      <option value="37">تندوف</option>
-                      <option value="38">تسمسيلت</option>
-                      <option value="39">الوادي</option>
-                      <option value="40">خنشلة</option>
-                      <option value="41">سوق أهراس</option>
-                      <option value="42">تيبازة</option>
-                      <option value="43">ميلة</option>
-                      <option value="44">عين الدفلى</option>
-                      <option value="45">النعامة</option>
-                      <option value="46">عين تموشنت</option>
-                      <option value="47">غرداية</option>
-                      <option value="48">غليزان</option>
-                    </select>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">اختر الدورة</label>
-                    <select class="form-select" name="course" required>
-                      <option value="">-- اختر الدورة --</option>
-                      <option value="delphi">برمجة Delphi (20,000 دج)</option>
-                      <option value="sql">قواعد بيانات SQL (15,000 دج)</option>
-                      <option value="web">تطوير الويب (25,000 دج)</option>
-                      <option value="python">برمجة Python (18,000 دج)</option>
-                      <option value="fullstack">باقة Full Stack (40,000 دج)</option>
-                    </select>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label">كود الخصم (إن وجد)</label>
-                    <input type="text" class="form-control" name="discount">
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary w-100">
-                    <i class="fas fa-paper-plane me-2"></i> سجل الآن واحصل على هدية
-                  </button>
-                  
-                  <div class="alert alert-success mt-3 text-center d-none" id="successMsg">
-                    <i class="fas fa-check-circle me-2"></i>
-                    <span id="msgText">تم التسجيل بنجاح! سنتواصل معك قريباً.</span>
-                  </div>
-                </form>
-              </div>
-            </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-laptop-code me-1"></i> أكاديمية البرمجيات التطبيقية</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="قائمة">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#courses">الدورات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">آراء الطلاب</a></li>
+          <li class="nav-item"><a class="nav-link" href="#regForm">التسجيل</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="container hero-section">
+    <div class="row align-items-center">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <span class="promo-badge"><i class="fas fa-rocket"></i> عروض صيفية: مقعدك مع هدية قيّمة!</span>
+        <h1 class="fw-bold mb-3 mt-2">احتراف Excel, Access, Delphi, SQL & تطبيقات ديسكتوب من الصفر حتى التميز</h1>
+        <p class="lead">دورات عملية مكثفة لكل المستويات، بإشراف مدربين خبراء، وشهادات معتمدة. للطلاب، المعلمين والموظفين الباحثين عن تطوير مهاراتهم الرقمية ومواكبة سوق العمل.</p>
+        <ul class="benefits-list mb-3">
+          <li>شرح تطبيقي ومشاريع حقيقية</li>
+          <li>شهادات معترف بها وفرص عمل للمتفوقين</li>
+          <li>دعم فني جماعي وفردي لمدة 3 أشهر</li>
+          <li>تحديثات مجانية وورش عمل دورية</li>
+        </ul>
+        <a href="#regForm" class="btn btn-primary btn-lg mt-3">
+          <i class="fas fa-gift"></i> سجّل الآن واحصل على هدية مجانية!
+        </a>
+      </div>
+      <div class="col-lg-5 text-center">
+        <!-- يمكنك استبدال الفيديو بصورة ترحيبية -->
+        <video src="welcome-demo.mp4" controls poster="https://i.imgur.com/n1h4b6U.jpg" class="w-100 shadow" style="max-height:290px"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience cards -->
+  <section class="container mb-4" id="courses">
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <div class="card card-fx h-100">
+          <div class="card-body">
+            <i class="fas fa-user-graduate fa-2x text-primary mb-2"></i>
+            <h5>للطلاب</h5>
+            <p>تعلم أدوات سوق العمل، حضّر لمستقبلك، وشارك في مشاريع تطبيقية واقعية.</p>
           </div>
         </div>
-        
-        <div class="text-center mt-4 text-muted">
-          <small>جميع الحقوق محفوظة © 2023 أكاديمية البرمجة المتميزة</small>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card card-fx h-100">
+          <div class="card-body">
+            <i class="fas fa-chalkboard-teacher fa-2x text-success mb-2"></i>
+            <h5>للمعلمين</h5>
+            <p>طرق فعّالة لإعداد دروس، اختبارات، وقواعد بيانات تعليمية احترافية.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card card-fx h-100">
+          <div class="card-body">
+            <i class="fas fa-briefcase fa-2x text-warning mb-2"></i>
+            <h5>للموظفين</h5>
+            <p>أتمتة العمل اليومي وتحليل البيانات لاتخاذ القرار ورفع الكفاءة.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Registration and benefits -->
+  <section class="container mb-4">
+    <div class="registration-card shadow-lg p-4 rounded-4 bg-white">
+      <div class="row justify-content-center align-items-stretch">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div class="guarantee-badge mb-3"><i class="fas fa-shield-alt me-2"></i> ضمان استرداد الأموال خلال 7 أيام</div>
+          <h4 class="mb-3"><i class="fas fa-bolt text-warning"></i> لماذا دوراتنا فريدة؟</h4>
+          <ul class="benefits-list">
+            <li>دروس مباشرة ومسجلة لجميع المستويات</li>
+            <li>مشاريع عملية مع ملفات قابلة للتنزيل</li>
+            <li>تطبيقات سطح مكتب واقعية (Excel, Access, Delphi, SQL)</li>
+            <li>دعم فني مستمر + مجموعة تواصل خاصة</li>
+            <li>شهادات رقمية وورقية</li>
+            <li>فرص تدريب وتوظيف للمتفوقين</li>
+          </ul>
+          <div class="social-proof mt-4" id="testimonials">
+            <h5><i class="fas fa-star text-warning"></i> تقييم 4.9/5 من 357 طالب</h5>
+            <div class="testimonial mt-3">
+              <p>"الدورات غيّرت مساري الوظيفي وفتحت لي فرص عمل جديدة في البرمجة. أوصي بها للجميع!"</p>
+              <p class="text-muted mb-0">- أحمد، مبرمج نظم</p>
+            </div>
+            <div class="testimonial">
+              <p>"شرح سلس وتطبيقات عملية حقيقية، حصلت على شهادة وبدأت أعمل في مشاريع."</p>
+              <p class="text-muted mb-0">- فاطمة، محللة بيانات</p>
+            </div>
+          </div>
+        </div>
+        <!-- Registration Form -->
+        <div class="col-md-6">
+          <form id="regForm">
+            <div class="mb-3">
+              <label class="form-label">الاسم الكامل</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">البريد الإلكتروني</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">رقم الهاتف</label>
+              <input type="tel" class="form-control" name="phone" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">العمر</label>
+              <input type="number" class="form-control" name="age" min="16" max="70" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">المدينة</label>
+              <input type="text" class="form-control" name="city" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">الولاية</label>
+              <select class="form-select" name="wilaya" required>
+                <option value="">-- اختر ولايتك --</option>
+                <option value="01">أدرار</option>
+                <option value="02">الشلف</option>
+                <option value="03">الأغواط</option>
+                <option value="04">أم البواقي</option>
+                <option value="05">باتنة</option>
+                <option value="06">بجاية</option>
+                <option value="07">بسكرة</option>
+                <option value="08">بشار</option>
+                <option value="09">البليدة</option>
+                <option value="10">البويرة</option>
+                <option value="11">تمنراست</option>
+                <option value="12">تبسة</option>
+                <option value="13">تلمسان</option>
+                <option value="14">تيارت</option>
+                <option value="15">تيزي وزو</option>
+                <option value="16">الجزائر</option>
+                <option value="17">الجلفة</option>
+                <option value="18">جيجل</option>
+                <option value="19">سطيف</option>
+                <option value="20">سعيدة</option>
+                <option value="21">سكيكدة</option>
+                <option value="22">سيدي بلعباس</option>
+                <option value="23">عنابة</option>
+                <option value="24">قالمة</option>
+                <option value="25">قسنطينة</option>
+                <option value="26">المدية</option>
+                <option value="27">مستغانم</option>
+                <option value="28">المسيلة</option>
+                <option value="29">معسكر</option>
+                <option value="30">ورقلة</option>
+                <option value="31">وهران</option>
+                <option value="32">البيض</option>
+                <option value="33">إيليزي</option>
+                <option value="34">برج بوعريريج</option>
+                <option value="35">بومرداس</option>
+                <option value="36">الطارف</option>
+                <option value="37">تندوف</option>
+                <option value="38">تسمسيلت</option>
+                <option value="39">الوادي</option>
+                <option value="40">خنشلة</option>
+                <option value="41">سوق أهراس</option>
+                <option value="42">تيبازة</option>
+                <option value="43">ميلة</option>
+                <option value="44">عين الدفلى</option>
+                <option value="45">النعامة</option>
+                <option value="46">عين تموشنت</option>
+                <option value="47">غرداية</option>
+                <option value="48">غليزان</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">اختر الدورة</label>
+              <select class="form-select" name="course" required>
+                <option value="">-- اختر الدورة --</option>
+                <option value="excel">إكسل من الصفر للاحتراف (15,000 دج)</option>
+                <option value="access">أكسس وقواعد بيانات (16,000 دج)</option>
+                <option value="delphi">برمجة ديسكتوب بـ Delphi (20,000 دج)</option>
+                <option value="sql">إدارة قواعد بيانات SQL (15,000 دج)</option>
+                <option value="fullstack">باقة كاملة: Excel + Access + Delphi + SQL (40,000 دج)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">مستواك الحالي</label>
+              <select class="form-select" name="level" required>
+                <option value="">-- اختر المستوى --</option>
+                <option value="beginner">مبتدئ</option>
+                <option value="intermediate">متوسط</option>
+                <option value="advanced">محترف</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">كود الخصم (إن وجد)</label>
+              <input type="text" class="form-control" name="discount">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-paper-plane me-2"></i> سجل الآن واحصل على هدية
+            </button>
+            <div class="alert alert-success mt-3 text-center d-none" id="successMsg">
+              <i class="fas fa-check-circle me-2"></i>
+              <span id="msgText">تم التسجيل بنجاح! سنتواصل معك قريباً.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share section -->
+  <div class="share-section">
+    <div>شارك الموقع مع أصدقائك وكن سببًا في تطويرهم!</div>
+    <a class="share-btn" href="https://wa.me/?text=أنصحك%20بدورة%20البرمجيات%20التطبيقية%20للاحتراف%20في%20Excel%20و%20Access%20و%20Delphi%20و%20SQL%20:%20{URL}" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={URL}" target="_blank"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+    <a class="share-btn" href="https://t.me/share/url?url={URL}&text=دورات%20برمجية%20للاحتراف" target="_blank"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
   </div>
 
+  <!-- Footer -->
+  <div class="footer text-center mt-4">
+    <small>جميع الحقوق محفوظة © 2025 أكاديمية البرمجيات التطبيقية</small>
+  </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Replace {URL} with your website link in share buttons
+    document.querySelectorAll('.share-btn').forEach(btn => {
+      btn.href = btn.href.replace('{URL}', window.location.href);
+    });
+
+    // Registration form submission
     document.getElementById('regForm').onsubmit = async function(e) {
       e.preventDefault();
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const successMsg = document.getElementById('successMsg');
       const msgText = document.getElementById('msgText');
-      
-      // تعطيل الزر أثناء الإرسال
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> جاري الإرسال...';
-      
       try {
         const formData = new FormData(form);
         const params = new URLSearchParams();
         for (const pair of formData) params.append(pair[0], pair[1]);
-        
-        // إضافة التاريخ
         params.append('timestamp', new Date().toLocaleString('ar-EG'));
-        
-        // ضع هنا رابط السكريبت الخاص بك:
+        // Google Apps Script endpoint (غيّر الرابط بما يناسبك)
         const scriptURL = "https://script.google.com/macros/s/AKfycbwYn7cDvCoszeVeJEgTaTHJzLuiatb8G6iV2lxrnvrcoa6u20Ysj5A4joNQ1j0DeYe5ZQ/exec";
-        
-        const response = await fetch(scriptURL, { 
-          method: "POST", 
-          body: params 
+        const response = await fetch(scriptURL, {
+          method: "POST",
+          body: params
         });
-        
         if (response.ok) {
           msgText.textContent = "تم التسجيل بنجاح! سنتواصل معك خلال 24 ساعة.";
           successMsg.classList.remove('d-none');
           form.reset();
-          
-          // تتبع التحويل (يمكنك إضافة كود Google Analytics هنا)
-          console.log('تم تسجيل مستخدم جديد');
         } else {
           throw new Error('فشل في الإرسال');
         }
       } catch (error) {
         msgText.textContent = "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة.";
-        successMsg.classList.remove('d-none');
-        successMsg.classList.remove('alert-success');
+        successMsg.classList.remove('d-none', 'alert-success');
         successMsg.classList.add('alert-danger');
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> سجل الآن واحصل على هدية';
-        
-        // إخفاء الرسالة بعد 5 ثوان
         setTimeout(() => {
           successMsg.classList.add('d-none');
           successMsg.classList.remove('alert-danger');
